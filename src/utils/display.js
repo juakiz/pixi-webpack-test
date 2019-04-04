@@ -10,7 +10,7 @@ const Display = {
     SCALE: 1,
     CONTENT: document.getElementById('main'),
 
-    RefreshSizes: function () {
+    refreshSizes: function () {
         Display.CONTENT = document.getElementById('main');
 
         let DPR = 1;
@@ -41,10 +41,10 @@ const Display = {
         Display.HEIGHT = Display.BOTTOM - Display.TOP;
     },
 
-    letterBoxView: function (view) {
-        view.scale.set(Display.SCALE);
-        view.x = (Display.REAL_WIDTH / 2) - (Display.CENTER_X * Display.SCALE);
-        view.y = (Display.REAL_HEIGHT / 2) - (Display.CENTER_Y * Display.SCALE);
+    letterBoxView: function (stage) {
+        stage.scale.set(Display.SCALE);
+        stage.x = (Display.REAL_WIDTH / 2) - (Display.CENTER_X * Display.SCALE);
+        stage.y = (Display.REAL_HEIGHT / 2) - (Display.CENTER_Y * Display.SCALE);
     }
 };
 

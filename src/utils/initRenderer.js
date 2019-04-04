@@ -1,10 +1,5 @@
 import * as PIXI from "pixi.js";
 
-/**
- *  Creates the Renderer
- *
- *  @returns {PIXIRenderer}
- */
 const initRenderer = () => {
     const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, {
         antialias: false,

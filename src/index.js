@@ -1,85 +1,52 @@
 import * as PIXI from "pixi.js";
-import initRenderer from "./initRenderer";
-import preloadResources from "./preloadResources";
-import getTexture from "./getTexture";
+import initRenderer from "./utils/initRenderer";
+import preloadResources from "./utils/preloadResources";
+// import Menu from "./menu-cont";
+import Cards from "./cards-cont";
+// import Fire from "./fire-cont";
+// import ImgText from "./img_text-cont";
+import D from './utils/display';
 
-let stage, /* cardSprite, */cards, fpsText, deltaTime = Date.now();
-let /* hSpeed = 3, vSpeed = 2,  */delay = 0;
+let stage, cardsCont, /* menuCont, fireCont, ImgTextCont, */ fpsText;
 
 const update = (time, renderer) => {
     requestAnimationFrame(t => update(t, renderer));
 
-    // cardSprite.x += hSpeed;
-    // cardSprite.y += vSpeed;
-
-    // if (cardSprite.x <= 0 || cardSprite.x + cardSprite.width >= renderer.view.width)
-    //     hSpeed *= -1;
-
-    // if (cardSprite.y <= 0 || cardSprite.y + cardSprite.height >= renderer.view.height)
-    //     vSpeed *= -1;
-        
     renderer.render(stage);
 
-    // Custom FPS counter
-    const timestamp = Date.now();
-    const gap = timestamp - deltaTime;
-    const FPS = gap > 1 ? 1000 / (timestamp - deltaTime) : 60;
-    deltaTime = timestamp;
+    cardsCont.update();
 
-    delay += FPS;
-    if (delay > 300) {
-        fpsText.text = `FPS: ${FPS.toFixed(2)}`;
-        delay = 0;
-    }
+    fpsText.text = `FPS: ${PIXI.ticker.shared.FPS.toFixed(2)}`;
 };
 
-const createCards = (stage) => {
-    const textures = PIXI.loader.resources["images/atlas.json"].textures;
-    const textureKeys = Object.keys(textures);
-    const cardAmount = textureKeys.length;
-    const objects = [];
-    let offset = 0;
-
-    for (let i = 0; i < 144; i++) {
-        const sprCard = new PIXI.Sprite(textures[textureKeys[i % cardAmount]]);
-        stage.addChild(sprCard);
-
-        sprCard.position.set(50, 50 + offset);
-        offset++;
-
-        setTimeout(i * 1000, () => {
-            sprCard.x += 100;
-        });
-    }
-    
-    return objects;
+const onResize = (stage, renderer) => {
+    D.refreshSizes();
+    D.letterBoxView(stage);
+    renderer.resize(window.innerWidth, window.innerHeight);
+    fpsText.position.set(D.LEFT + 10, D.TOP + 10);
 };
 
 const setup = () => {
     const renderer = initRenderer();
 
+    fpsText = new PIXI.Text("0", { fontSize: 16, fill: "#fff" });
+
     stage = new PIXI.Container();
 
-    const style = new PIXI.TextStyle({
-        // fontFamily: 'Arial',
-        fontSize: 16,
-        fill: "#fff",
-    });
-
-    fpsText = new PIXI.Text("0", style);
-    fpsText.x = 10;
-    fpsText.y = 10;
-
-    // const cardTexture = getTexture("2C.png");
-    // cardSprite = new PIXI.Sprite(cardTexture);
-
-    // cardSprite.position.set(0, 0);
-    // cardSprite.position.set(renderer.view.width - cardSprite.width, renderer.view.height - cardSprite.height);
-
-    // stage.addChild(cardSprite);
     stage.addChild(fpsText);
 
-    cards = createCards(stage);
+    onResize(stage, renderer);
+    window.addEventListener('resize', () => onResize(stage, renderer));
+
+    // menuCont = new Menu(stage);
+    cardsCont = new Cards(stage);
+    // fireCont = new Fire(stage);
+    // ImgTextCont = new ImgText(stage);
+
+    // stage.addChild(menuCont);
+    stage.addChild(cardsCont);
+    // stage.addChild(fireCont);
+    // stage.addChild(ImgTextCont);
 
     update(-1, renderer);
 };
