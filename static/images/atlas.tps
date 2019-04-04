@@ -56,7 +56,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -82,7 +82,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png</enum>
+        <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -181,86 +181,86 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../resized/10C.png</key>
-            <key type="filename">../resized/10D.png</key>
-            <key type="filename">../resized/10H.png</key>
-            <key type="filename">../resized/10S.png</key>
-            <key type="filename">../resized/2C.png</key>
-            <key type="filename">../resized/2D.png</key>
-            <key type="filename">../resized/2H.png</key>
-            <key type="filename">../resized/2S.png</key>
-            <key type="filename">../resized/3C.png</key>
-            <key type="filename">../resized/3D.png</key>
-            <key type="filename">../resized/3H.png</key>
-            <key type="filename">../resized/3S.png</key>
-            <key type="filename">../resized/4C.png</key>
-            <key type="filename">../resized/4D.png</key>
-            <key type="filename">../resized/4H.png</key>
-            <key type="filename">../resized/4S.png</key>
-            <key type="filename">../resized/5C.png</key>
-            <key type="filename">../resized/5D.png</key>
-            <key type="filename">../resized/5H.png</key>
-            <key type="filename">../resized/5S.png</key>
-            <key type="filename">../resized/6D.png</key>
-            <key type="filename">../resized/6H.png</key>
-            <key type="filename">../resized/7C.png</key>
-            <key type="filename">../resized/7H.png</key>
-            <key type="filename">../resized/7S.png</key>
-            <key type="filename">../resized/8C.png</key>
-            <key type="filename">../resized/8D.png</key>
-            <key type="filename">../resized/8H.png</key>
-            <key type="filename">../resized/8S.png</key>
-            <key type="filename">../resized/9C.png</key>
-            <key type="filename">../resized/9D.png</key>
-            <key type="filename">../resized/9H.png</key>
-            <key type="filename">../resized/9S.png</key>
-            <key type="filename">../resized/AC.png</key>
-            <key type="filename">../resized/AD.png</key>
-            <key type="filename">../resized/AH.png</key>
-            <key type="filename">../resized/AS.png</key>
-            <key type="filename">../resized/JC.png</key>
-            <key type="filename">../resized/JD.png</key>
-            <key type="filename">../resized/JH.png</key>
-            <key type="filename">../resized/JS.png</key>
-            <key type="filename">../resized/KC.png</key>
-            <key type="filename">../resized/KD.png</key>
-            <key type="filename">../resized/KS.png</key>
-            <key type="filename">../resized/QC.png</key>
-            <key type="filename">../resized/QD.png</key>
-            <key type="filename">../resized/QH.png</key>
-            <key type="filename">../resized/QS.png</key>
+            <key type="filename">cards/10C.png</key>
+            <key type="filename">cards/10D.png</key>
+            <key type="filename">cards/10H.png</key>
+            <key type="filename">cards/10S.png</key>
+            <key type="filename">cards/2C.png</key>
+            <key type="filename">cards/2D.png</key>
+            <key type="filename">cards/2H.png</key>
+            <key type="filename">cards/2S.png</key>
+            <key type="filename">cards/3C.png</key>
+            <key type="filename">cards/3D.png</key>
+            <key type="filename">cards/3H.png</key>
+            <key type="filename">cards/3S.png</key>
+            <key type="filename">cards/4C.png</key>
+            <key type="filename">cards/4D.png</key>
+            <key type="filename">cards/4H.png</key>
+            <key type="filename">cards/4S.png</key>
+            <key type="filename">cards/5C.png</key>
+            <key type="filename">cards/5D.png</key>
+            <key type="filename">cards/5H.png</key>
+            <key type="filename">cards/5S.png</key>
+            <key type="filename">cards/6D.png</key>
+            <key type="filename">cards/6H.png</key>
+            <key type="filename">cards/7C.png</key>
+            <key type="filename">cards/7H.png</key>
+            <key type="filename">cards/7S.png</key>
+            <key type="filename">cards/8C.png</key>
+            <key type="filename">cards/8D.png</key>
+            <key type="filename">cards/8H.png</key>
+            <key type="filename">cards/8S.png</key>
+            <key type="filename">cards/9C.png</key>
+            <key type="filename">cards/9D.png</key>
+            <key type="filename">cards/9H.png</key>
+            <key type="filename">cards/9S.png</key>
+            <key type="filename">cards/AC.png</key>
+            <key type="filename">cards/AD.png</key>
+            <key type="filename">cards/AH.png</key>
+            <key type="filename">cards/AS.png</key>
+            <key type="filename">cards/JC.png</key>
+            <key type="filename">cards/JD.png</key>
+            <key type="filename">cards/JH.png</key>
+            <key type="filename">cards/JS.png</key>
+            <key type="filename">cards/KC.png</key>
+            <key type="filename">cards/KD.png</key>
+            <key type="filename">cards/KS.png</key>
+            <key type="filename">cards/QC.png</key>
+            <key type="filename">cards/QD.png</key>
+            <key type="filename">cards/QH.png</key>
+            <key type="filename">cards/QS.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0,0</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>35,53,69,105</rect>
+                <rect>52,79,103,159</rect>
                 <key>scale9Paddings</key>
-                <rect>35,53,69,105</rect>
+                <rect>52,79,103,159</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../resized/6C.png</key>
-            <key type="filename">../resized/6S.png</key>
-            <key type="filename">../resized/7D.png</key>
-            <key type="filename">../resized/KH.png</key>
+            <key type="filename">cards/6C.png</key>
+            <key type="filename">cards/6S.png</key>
+            <key type="filename">cards/7D.png</key>
+            <key type="filename">cards/KH.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0,0</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>34,53,69,105</rect>
+                <rect>51,79,103,158</rect>
                 <key>scale9Paddings</key>
-                <rect>34,53,69,105</rect>
+                <rect>51,79,103,158</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../resized</filename>
+            <filename>cards</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
