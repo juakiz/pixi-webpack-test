@@ -7,21 +7,21 @@ import Cards from "./cards-cont";
 // import ImgText from "./img_text-cont";
 import D from './utils/display';
 
-let stage, cardsCont, /* menuCont, fireCont, ImgTextCont, */ fpsText;
+let stage, state, cardsCont, /* menuCont, fireCont, ImgTextCont, */ fpsText;
 
 const update = (time, renderer) => {
     requestAnimationFrame(t => update(t, renderer));
 
     renderer.render(stage);
 
-    cardsCont.update();
+    state.update();
 
     fpsText.text = `FPS: ${PIXI.ticker.shared.FPS.toFixed(2)}`;
 };
 
 const onResize = (stage, renderer) => {
     D.refreshSizes();
-    D.letterBoxView(stage);
+    D.letterBoxCont(stage);
     renderer.resize(window.innerWidth, window.innerHeight);
     fpsText.position.set(D.LEFT + 10, D.TOP + 10);
 };
@@ -47,6 +47,8 @@ const setup = () => {
     stage.addChild(cardsCont);
     // stage.addChild(fireCont);
     // stage.addChild(ImgTextCont);
+
+    state = cardsCont;
 
     update(-1, renderer);
 };

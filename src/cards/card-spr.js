@@ -4,11 +4,13 @@ export default class Card extends PIXI.Sprite {
     constructor(x, y, texture) {
         super(texture);
 
-        this.position.set(x, y);
-
-        this.initialX = this.targetX = x;
-        this.initialY = this.targetX = y;
+        this.X0 = this.targetX = x;
+        this.Y0 = this.targetX = y;
+        this.Scale0 = 0.8;
         this.moving = false;
+
+        this.position.set(x, y);
+        this.scale.set(this.Scale0);
     }
 
     moveTo(x, y, time) {
@@ -16,23 +18,33 @@ export default class Card extends PIXI.Sprite {
         this.targetY = y;
         this.delay = time;
 
-        this.END_TIME = Date.now() + this.delay;
+        const timestamp = Date.now();
+
+        this.timeStart = timestamp;
+        this.timeEnd = timestamp + this.delay;
         this.moving = true;
     }
 
     update() {
-        if (this.moving && Date.now() < this.END_TIME) {
-            const t = Date.now() / this.END_TIME;
+        const { targetX, targetY, Scale0, timeStart, delay } = this;
+        if (this.moving) {
+            const timestamp = Date.now();
+            if (timestamp < this.timeEnd) {
+                const t = (timestamp - timeStart) / delay;
 
-            this.x = this.lerp(this.initialX, this.targetX, t);
-            this.y = this.lerp(this.initialY, this.targetY, t);
+                this.x = this.lerp(this.X0, targetX, t);
+                this.y = this.lerp(this.Y0, targetY, t);
 
-            this.scale.x = this.scale.y = t < 0.5 ? (1 + t) * 0.5 : (1.5 - t) * 0.5;
-        }
-        else if (this.moving) {
-            this.initialX = this.x = this.targetX;
-            this.initialY = this.y = this.targetY;
-            this.moving = false;
+                const scaleInc = 0.6;
+                this.scale.x = this.scale.y = t < 0.5 ? Scale0 + (t * scaleInc) : (Scale0 + scaleInc) - (t * scaleInc);
+            }
+            else {
+                this.X0 = this.x = targetX;
+                this.Y0 = this.y = targetY;
+                this.scale.set(this.Scale0);
+                this.moving = false;
+                this.parent.animatedCards.shift();
+            }
         }
     }
 
