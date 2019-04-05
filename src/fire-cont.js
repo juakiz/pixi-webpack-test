@@ -5,6 +5,12 @@ export default class Fire extends PIXI.Container {
     constructor(parent) {
         super();
 
+        this.name = "fire";
+
         parent.addChild(this);
+    }
+
+    start() {
+
     }
   }

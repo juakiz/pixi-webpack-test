@@ -5,6 +5,8 @@ export default class Menu extends PIXI.Container {
     constructor(parent, data) {
         super();
 
+        this.name = "menu";
+
         parent.addChild(this);
 
         this.buttons = Object.keys(data).map(i => {
@@ -14,6 +16,14 @@ export default class Menu extends PIXI.Container {
 
     update() {
 
+    }
+
+    start() {
+        this.visible = true;
+    }
+
+    stop() {
+        this.visible = false;
     }
 
     makeButton(x, y, text, ref) {
@@ -48,7 +58,6 @@ export default class Menu extends PIXI.Container {
 
         button.on('pointerdown', () => {
             this.visible = false;
-            console.log(parent);
             this.parent.state = ref;
             ref.start();
         });

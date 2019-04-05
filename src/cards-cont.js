@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import Card from "./cards/card-spr";
 import D from "./utils/display";
+import Btn from "./button-grap";
 
 let cfg;
 
@@ -8,13 +9,15 @@ export default class Cards extends PIXI.Container {
     constructor(parent) {
         super();
 
+        this.name = "cards";
+
         cfg = this.cfg = {
             deckSize: 144,
             leftStackX: D.LEFT + 120,
             rightStackX: D.RIGHT - 120,
             topY: 50,
             offset: 0,
-            gap: 2,
+            gap: 1.5,
             delay: 1000,
             duration: 2000,
         };
@@ -22,24 +25,31 @@ export default class Cards extends PIXI.Container {
         parent.addChild(this);
         
         const leftCont = this.leftCont = new PIXI.Container();
+        leftCont.name = "leftCont";
         this.addChild(leftCont);
         const rightCont = this.rightCont = new PIXI.Container();
+        rightCont.name = "rightCont";
         this.addChild(rightCont);
 
         // TODO: pool util
         this.animatedCards = [];
 
         const textures = PIXI.loader.resources["images/atlas.json"].textures;
-        const textureKeys = Object.keys(textures);
-        const cardAmount = textureKeys.length;
+        const texKeys = Object.keys(textures);
+        const cardTotal = texKeys.length;
         
         for (let i = 0; i < cfg.deckSize; i++) {
-            const sprCard = new Card(cfg.leftStackX, cfg.topY + cfg.offset, textures[textureKeys[i % cardAmount]]);
+            const sprCard = new Card(cfg.leftStackX, cfg.topY + cfg.offset, textures[texKeys[i % cardTotal]]);
             sprCard.anchor.set(0.5, 0);
             leftCont.addChild(sprCard);
             cfg.offset += cfg.gap;
         }
         cfg.offset = 0;
+
+        const btnDim = { x: -40, y: -30, width: 80, height: 60 };
+        const backBtn = this.backBtn = new Btn(0, 0, "Back", btnDim, () => this.stop());
+        backBtn.position.set(D.RIGHT - (backBtn.width / 2) - 20, D.BOTTOM - (backBtn.height / 2) - 20);
+        this.addChild(backBtn);
 
         this.visible = false;
         // this.start();
@@ -60,16 +70,8 @@ export default class Cards extends PIXI.Container {
 
     stop() {
         this.visible = false;
-        this.resetDeck();
-    }
-
-    resetDeck() {
-        this.rightCont.children.forEach(el => this.leftCont.addChild(el));
-        cfg.offset = 0;
-        this.leftCont.children.forEach(el => {
-            el.position.set(cfg.leftStackX, cfg.topY + cfg.offset);
-            cfg.offset += cfg.gap;
-        });
+        const menu = this.parent.getChildByName("menu");
+        menu.start();
     }
 
     draftCard() {
@@ -80,6 +82,7 @@ export default class Cards extends PIXI.Container {
     
             if (card !== null) {
                 animatedCards.push(card);
+                leftCont.removeChild(card);
                 rightCont.addChild(card);
                 card.moveTo(cfg.rightStackX, cfg.topY + cfg.offset, cfg.duration);
                 cfg.offset += cfg.gap;
@@ -90,4 +93,4 @@ export default class Cards extends PIXI.Container {
             else cfg.offset = 0;
         }
     }
-  }
+}
