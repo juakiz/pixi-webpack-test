@@ -76,7 +76,7 @@ const setup = () => {
 
 // Initialisation
 window.addEventListener("load", () => {
-    const resources = ["images/atlas.json"];
+    const resources = ["images/atlas.json", "fire.png"];
     preloadResources(resources, () => {
         setup();
     });

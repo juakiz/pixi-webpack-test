@@ -20,6 +20,7 @@ export default class Menu extends PIXI.Container {
 
     start() {
         this.visible = true;
+        this.parent.state = this;
     }
 
     stop() {
