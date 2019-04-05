@@ -7,7 +7,7 @@ export default class Imgtxt extends PIXI.Container {
     constructor(parent) {
         super();
 
-        this.name = "imgtxt";
+        this.name = "imgtxt"; 
 
         parent.addChild(this);
 

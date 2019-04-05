@@ -69,7 +69,6 @@ const setup = () => {
     stage.addChild(fireCont);
     stage.addChild(menuCont);
 
-    // stage.state = cardsCont;
     stage.state = menuCont;
 
     update(-1, renderer);
