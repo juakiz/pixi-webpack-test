@@ -41,9 +41,8 @@ export default class Cards extends PIXI.Container {
         }
         cfg.offset = 0;
 
-        setTimeout(() => {
-            this.draftCard();
-        }, cfg.delay);
+        this.visible = false;
+        // this.start();
     }
 
     update() {
@@ -52,20 +51,43 @@ export default class Cards extends PIXI.Container {
         });
     }
 
-    draftCard() {
-        const { leftCont, rightCont, animatedCards } = this;
-        const lastIndex = leftCont.children.length - 1;
-        const card = lastIndex >= 0 ? leftCont.getChildAt(lastIndex) : null;
+    start() {
+        this.visible = true;
+        setTimeout(() => {
+            this.draftCard();
+        }, cfg.delay);
+    }
 
-        if (card !== null) {
-            animatedCards.push(card);
-            rightCont.addChild(card);
-            card.moveTo(cfg.rightStackX, cfg.topY + cfg.offset, cfg.duration);
+    stop() {
+        this.visible = false;
+        this.resetDeck();
+    }
+
+    resetDeck() {
+        this.rightCont.children.forEach(el => this.leftCont.addChild(el));
+        cfg.offset = 0;
+        this.leftCont.children.forEach(el => {
+            el.position.set(cfg.leftStackX, cfg.topY + cfg.offset);
             cfg.offset += cfg.gap;
-            setTimeout(() => {
-                this.draftCard();
-            }, cfg.delay);
+        });
+    }
+
+    draftCard() {
+        if (this.visible) {
+            const { leftCont, rightCont, animatedCards } = this;
+            const lastIndex = leftCont.children.length - 1;
+            const card = lastIndex >= 0 ? leftCont.getChildAt(lastIndex) : null;
+    
+            if (card !== null) {
+                animatedCards.push(card);
+                rightCont.addChild(card);
+                card.moveTo(cfg.rightStackX, cfg.topY + cfg.offset, cfg.duration);
+                cfg.offset += cfg.gap;
+                setTimeout(() => {
+                    this.draftCard();
+                }, cfg.delay);
+            }
+            else cfg.offset = 0;
         }
-        else cfg.offset = 0;
     }
   }

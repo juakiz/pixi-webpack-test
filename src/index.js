@@ -1,20 +1,20 @@
 import * as PIXI from "pixi.js";
 import initRenderer from "./utils/initRenderer";
 import preloadResources from "./utils/preloadResources";
-// import Menu from "./menu-cont";
+import Menu from "./menu-cont";
 import Cards from "./cards-cont";
-// import Fire from "./fire-cont";
-// import ImgText from "./img_text-cont";
+import Fire from "./fire-cont";
+import Imgtxt from "./imgtxt-cont";
 import D from './utils/display';
 
-let stage, state, cardsCont, /* menuCont, fireCont, ImgTextCont, */ fpsText;
+let stage, cardsCont, fireCont, ImgtxtCont, menuCont, fpsText;
 
 const update = (time, renderer) => {
     requestAnimationFrame(t => update(t, renderer));
 
     renderer.render(stage);
 
-    state.update();
+    stage.state.update();
 
     fpsText.text = `FPS: ${PIXI.ticker.shared.FPS.toFixed(2)}`;
 };
@@ -38,17 +38,39 @@ const setup = () => {
     onResize(stage, renderer);
     window.addEventListener('resize', () => onResize(stage, renderer));
 
-    // menuCont = new Menu(stage);
     cardsCont = new Cards(stage);
-    // fireCont = new Fire(stage);
-    // ImgTextCont = new ImgText(stage);
+    ImgtxtCont = new Imgtxt(stage);
+    fireCont = new Fire(stage);
 
-    // stage.addChild(menuCont);
+    const menuData = {
+        cards: {
+            x: D.CENTER_X,
+            y: D.CENTER_Y - 120,
+            text: "Cards Performance Test",
+            ref: cardsCont,
+        },
+        fire: {
+            x: D.CENTER_X,
+            y: D.CENTER_Y,
+            text: "Fire library",
+            ref: ImgtxtCont,
+        },
+        imgtxt: {
+            x: D.CENTER_X,
+            y: D.CENTER_Y + 120,
+            text: "Text & Images util",
+            ref: fireCont,
+        },
+    };
+    menuCont = new Menu(stage, menuData);
+
     stage.addChild(cardsCont);
-    // stage.addChild(fireCont);
-    // stage.addChild(ImgTextCont);
+    stage.addChild(ImgtxtCont);
+    stage.addChild(fireCont);
+    stage.addChild(menuCont);
 
-    state = cardsCont;
+    // stage.state = cardsCont;
+    stage.state = menuCont;
 
     update(-1, renderer);
 };

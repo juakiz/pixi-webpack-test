@@ -43,7 +43,7 @@ export default class Card extends PIXI.Sprite {
                 this.Y0 = this.y = targetY;
                 this.scale.set(this.Scale0);
                 this.moving = false;
-                this.parent.animatedCards.shift();
+                this.parent.parent.animatedCards.shift();
             }
         }
     }
