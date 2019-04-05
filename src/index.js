@@ -49,16 +49,16 @@ const setup = () => {
             text: "Cards Performance Test",
             ref: cardsCont,
         },
-        fire: {
-            x: D.CENTER_X,
-            y: D.CENTER_Y,
-            text: "Fire library",
-            ref: ImgtxtCont,
-        },
         imgtxt: {
             x: D.CENTER_X,
-            y: D.CENTER_Y + 120,
+            y: D.CENTER_Y,
             text: "Text & Images util",
+            ref: ImgtxtCont,
+        },
+        fire: {
+            x: D.CENTER_X,
+            y: D.CENTER_Y + 120,
+            text: "Fire library",
             ref: fireCont,
         },
     };
