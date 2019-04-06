@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import Card from "./cards/card-spr";
 import D from "./utils/display";
-import Btn from "./button-grap";
+import Btn from "./button-spr";
 
 let cfg;
 
@@ -47,8 +47,7 @@ export default class Cards extends PIXI.Container {
         cfg.offset = 0;
 
         // BACK BTN
-        const btnDim = { x: -40, y: -30, width: 80, height: 60 };
-        const backBtn = this.backBtn = new Btn(0, 0, "Back", btnDim, () => this.stop());
+        const backBtn = this.backBtn = new Btn(0, 0, () => this.stop());
         backBtn.position.set(D.RIGHT - (backBtn.width / 2) - 20, D.BOTTOM - (backBtn.height / 2) - 20);
         this.addChild(backBtn);
 

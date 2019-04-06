@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import * as particles from 'pixi-particles';
-import Btn from "./button-grap";
+import Btn from "./button-spr";
 import D from "./utils/display";
 
 let emitter, elapsed, now;
@@ -13,9 +13,14 @@ export default class Fire extends PIXI.Container {
 
         parent.addChild(this);
 
+        const badge = new PIXI.Sprite(PIXI.loader.resources["images/GUI.json"].textures["Tex_badge_06.png"]);
+        badge.position.set(D.CENTER_X, D.CENTER_Y + 130);
+        badge.anchor.set(0.5);
+        this.addChild(badge);
+
         emitter = new particles.Emitter(
             this,
-            ["images/fire1.png", "images/fire2.png", "images/fire3.png", ],
+            ["fire1.png", "fire2.png", "fire3.png"],
             {
                 "alpha": {
                     "start": 1,
@@ -68,8 +73,7 @@ export default class Fire extends PIXI.Container {
         elapsed = Date.now();
 
         // BACK BTN
-        const btnDim = { x: -40, y: -30, width: 80, height: 60 };
-        const backBtn = this.backBtn = new Btn(0, 0, "Back", btnDim, () => this.stop());
+        const backBtn = this.backBtn = new Btn(0, 0, () => this.stop());
         backBtn.position.set(D.RIGHT - (backBtn.width / 2) - 20, D.BOTTOM - (backBtn.height / 2) - 20);
         this.addChild(backBtn);
 

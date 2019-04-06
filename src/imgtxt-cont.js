@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import ImgTxtUtil from "./imgtxt/imgtxt-util";
 import D from "./utils/display";
-import Btn from "./button-grap";
+import Btn from "./button-spr";
 
 export default class Imgtxt extends PIXI.Container {
     constructor(parent) {
@@ -11,6 +11,11 @@ export default class Imgtxt extends PIXI.Container {
 
         parent.addChild(this);
 
+        const badge = new PIXI.Sprite(PIXI.loader.resources["images/GUI.json"].textures["Tex_badge_18.png"]);
+        badge.position.set(D.CENTER_X, D.CENTER_Y - (badge.height / 2) - 25);
+        badge.anchor.set(0.5);
+        this.addChild(badge);
+
         this.ranges = { fontSize: [10, 26], words: [3, 16] };
         this.data = [
             ["Lorem", "ipsum", "dolor", "sit"],
@@ -18,8 +23,7 @@ export default class Imgtxt extends PIXI.Container {
         ];
 
         // BACK BTN
-        const btnDim = { x: -40, y: -30, width: 80, height: 60 };
-        const backBtn = this.backBtn = new Btn(0, 0, "Back", btnDim, () => this.stop());
+        const backBtn = this.backBtn = new Btn(0, 0, () => this.stop());
         backBtn.position.set(D.RIGHT - (backBtn.width / 2) - 20, D.BOTTOM - (backBtn.height / 2) - 20);
         this.addChild(backBtn);
 
@@ -57,7 +61,7 @@ export default class Imgtxt extends PIXI.Container {
         }
 
         const richText = new ImgTxtUtil(string, this.randomBtwn(ranges.fontSize[0], ranges.fontSize[1]));
-        richText.position.set(D.CENTER_X - (richText.width / 2), D.CENTER_Y - (richText.height / 2));
+        richText.position.set(D.CENTER_X - (richText.width / 2), D.CENTER_Y + (richText.height / 2));
         this.addChild(richText);
 
         this.timer = setTimeout(() => {
