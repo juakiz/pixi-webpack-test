@@ -1,10 +1,22 @@
+/**
+ * A PixiJS Container extension to make images mixed with text.
+ * You need to add the characters 'img#' before the name of the file to include the image.
+ * 
+ * @extends PIXI.Container
+ */
 import * as PIXI from "pixi.js";
 
-// TODO (?): Wordwrap?
 export default class imgTxtUtil extends PIXI.Container {
+    /**
+     * Mix text with images.
+     * @constructor
+     * @param {string} text - Full text string with words and the key characters following filenames.
+     * @param {Number} fotnSize - Text (and images) size.
+     */
     constructor(text, fotnSize) {
         super();
-
+        
+        // TODO (?): Wordwrap?
         this.style = new PIXI.TextStyle({
             fontFamily: "Arial",
             fontSize: fotnSize,
