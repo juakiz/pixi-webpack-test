@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename>GUI.png</filename>
+        <filename>../static/images/GUI.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>GUI.json</filename>
+                <filename>../static/images/GUI.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,9 +181,9 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../assets/UI/Plank_07.png</key>
-            <key type="filename">../../assets/UI/Plank_08.png</key>
-            <key type="filename">../../assets/UI/Plank_09.png</key>
+            <key type="filename">UI/Plank_07.png</key>
+            <key type="filename">UI/Plank_08.png</key>
+            <key type="filename">UI/Plank_09.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -196,7 +196,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/Tex_badge_06.png</key>
+            <key type="filename">UI/Tex_badge_06.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -209,8 +209,8 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/Tex_badge_18.png</key>
-            <key type="filename">../../assets/UI/Tex_badge_35.PNG</key>
+            <key type="filename">UI/Tex_badge_18.png</key>
+            <key type="filename">UI/Tex_badge_35.PNG</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -223,7 +223,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/banner_01.png</key>
+            <key type="filename">UI/banner_01.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -236,7 +236,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/button_04.png</key>
+            <key type="filename">UI/button_04.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -249,9 +249,9 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/fire1.png</key>
-            <key type="filename">../../assets/UI/fire2.png</key>
-            <key type="filename">../../assets/UI/fire3.png</key>
+            <key type="filename">UI/fire1.png</key>
+            <key type="filename">UI/fire2.png</key>
+            <key type="filename">UI/fire3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -264,7 +264,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/title.png</key>
+            <key type="filename">UI/title.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
@@ -280,7 +280,7 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../assets/UI</filename>
+            <filename>UI</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

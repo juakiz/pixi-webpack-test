@@ -1,5 +1,5 @@
 /**
- * A PixiJS Container extension to make images mixed with text.
+ * A PixiJS Container extension to easily make images mixed with text.
  * You need to add the characters 'img#' before the name of the file to include the image.
  * 
  * @extends PIXI.Container

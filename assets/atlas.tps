@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename>GUI.png</filename>
+        <filename>../static/images/atlas.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -56,7 +56,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -82,7 +82,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png</enum>
+        <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>GUI.json</filename>
+                <filename>../static/images/atlas.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,106 +181,86 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../assets/UI/Plank_07.png</key>
-            <key type="filename">../../assets/UI/Plank_08.png</key>
-            <key type="filename">../../assets/UI/Plank_09.png</key>
+            <key type="filename">cards/10C.png</key>
+            <key type="filename">cards/10D.png</key>
+            <key type="filename">cards/10H.png</key>
+            <key type="filename">cards/10S.png</key>
+            <key type="filename">cards/2C.png</key>
+            <key type="filename">cards/2D.png</key>
+            <key type="filename">cards/2H.png</key>
+            <key type="filename">cards/2S.png</key>
+            <key type="filename">cards/3C.png</key>
+            <key type="filename">cards/3D.png</key>
+            <key type="filename">cards/3H.png</key>
+            <key type="filename">cards/3S.png</key>
+            <key type="filename">cards/4C.png</key>
+            <key type="filename">cards/4D.png</key>
+            <key type="filename">cards/4H.png</key>
+            <key type="filename">cards/4S.png</key>
+            <key type="filename">cards/5C.png</key>
+            <key type="filename">cards/5D.png</key>
+            <key type="filename">cards/5H.png</key>
+            <key type="filename">cards/5S.png</key>
+            <key type="filename">cards/6D.png</key>
+            <key type="filename">cards/6H.png</key>
+            <key type="filename">cards/7C.png</key>
+            <key type="filename">cards/7H.png</key>
+            <key type="filename">cards/7S.png</key>
+            <key type="filename">cards/8C.png</key>
+            <key type="filename">cards/8D.png</key>
+            <key type="filename">cards/8H.png</key>
+            <key type="filename">cards/8S.png</key>
+            <key type="filename">cards/9C.png</key>
+            <key type="filename">cards/9D.png</key>
+            <key type="filename">cards/9H.png</key>
+            <key type="filename">cards/9S.png</key>
+            <key type="filename">cards/AC.png</key>
+            <key type="filename">cards/AD.png</key>
+            <key type="filename">cards/AH.png</key>
+            <key type="filename">cards/AS.png</key>
+            <key type="filename">cards/JC.png</key>
+            <key type="filename">cards/JD.png</key>
+            <key type="filename">cards/JH.png</key>
+            <key type="filename">cards/JS.png</key>
+            <key type="filename">cards/KC.png</key>
+            <key type="filename">cards/KD.png</key>
+            <key type="filename">cards/KS.png</key>
+            <key type="filename">cards/QC.png</key>
+            <key type="filename">cards/QD.png</key>
+            <key type="filename">cards/QH.png</key>
+            <key type="filename">cards/QS.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>101,20,202,41</rect>
+                <rect>52,79,103,159</rect>
                 <key>scale9Paddings</key>
-                <rect>101,20,202,41</rect>
+                <rect>52,79,103,159</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../../assets/UI/Tex_badge_06.png</key>
+            <key type="filename">cards/6C.png</key>
+            <key type="filename">cards/6S.png</key>
+            <key type="filename">cards/7D.png</key>
+            <key type="filename">cards/KH.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0,0</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>64,64,128,128</rect>
+                <rect>51,79,103,158</rect>
                 <key>scale9Paddings</key>
-                <rect>64,64,128,128</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../assets/UI/Tex_badge_18.png</key>
-            <key type="filename">../../assets/UI/Tex_badge_35.PNG</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>50,50,100,100</rect>
-                <key>scale9Paddings</key>
-                <rect>50,50,100,100</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../assets/UI/banner_01.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>124,84,247,168</rect>
-                <key>scale9Paddings</key>
-                <rect>124,84,247,168</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../assets/UI/button_04.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>26,15,51,30</rect>
-                <key>scale9Paddings</key>
-                <rect>26,15,51,30</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../assets/UI/fire1.png</key>
-            <key type="filename">../../assets/UI/fire2.png</key>
-            <key type="filename">../../assets/UI/fire3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>8,8,15,15</rect>
-                <key>scale9Paddings</key>
-                <rect>8,8,15,15</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../assets/UI/title.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0,0</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>123,26,245,52</rect>
-                <key>scale9Paddings</key>
-                <rect>123,26,245,52</rect>
+                <rect>51,79,103,158</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../assets/UI</filename>
+            <filename>cards</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
